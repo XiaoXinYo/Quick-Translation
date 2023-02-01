@@ -1,0 +1,134 @@
+{
+  "name": "quick-translation",
+  "displayName": "Quick Translation",
+  "keywords": ["translation", "variable", "select text", "翻译", "变量", "选中文本"],
+  "description": "A translate variable and select text VS Code plugin.",
+  "categories": [
+    "Other"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XiaoXinYo/Quick-Translation"
+  },
+  "publisher": "XiaoXinYo",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "keybindings": [
+      {
+        "command": "extension.translateVariable",
+        "key": "ctrl+shift+r",
+        "mac": "cmd+shift+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.manualTranslateSelectText",
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "API",
+        "properties": {
+          "quickTranslation.api.platform": {
+            "order": 0,
+            "type": "string",
+            "enum": [
+              "Baidu",
+              "Google"
+            ],
+            "default": "Baidu",
+            "description": "Platform."
+          },
+          "quickTranslation.api.id": {
+            "order": 1,
+            "type": "string",
+            "description": "ID, When the platform is Google, there is no need to fill in."
+          },
+          "quickTranslation.api.key": {
+            "order": 2,
+            "type": "string",
+            "description": "KEY, When the platform is Google, there is no need to fill in."
+          }
+        }
+      },
+      {
+        "title": "Target Language",
+        "properties": {
+          "quickTranslation.targetLanguage": {
+            "type": "string",
+            "enum": [
+              "Arabic",
+              "Chinese",
+              "English",
+              "French",
+              "Russian",
+              "Spanish"
+            ],
+            "default": "Chinese",
+            "description": "Target language."
+          }
+        }
+      },
+      {
+        "title": "Function",
+        "properties": {
+          "quickTranslation.function.translateVariable": {
+            "order": 0,
+            "type": "boolean",
+            "default": true,
+            "description": "Translate variable into English(If enabled, after selecting the variable, press Ctrl+Shift+R/Command+Shift+R to replace it)."
+          },
+          "quickTranslation.function.translateSelectText": {
+            "order": 1,
+            "type": "boolean",
+            "default": true,
+            "description": "Translate select text into target language."
+          },
+          "quickTranslation.function.autoTranslateSelectText": {
+            "order": 2,
+            "type": "boolean",
+            "default": true,
+            "description": "If enabled, hover over automatically translate the select text, if disabled, hover and press Ctrl+Shift+T/Command+Shift+T to translate."
+          }
+        }
+      }
+    ]
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "@asmagin/google-translate-api": "^8.0.2",
+    "axios": "^1.2.5",
+    "change-case": "^4.1.2",
+    "ts-md5": "^1.3.1"
+  }
+}
