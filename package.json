@@ -6,6 +6,7 @@
   "categories": [
     "Other"
   ],
+  "icon": "icon.png",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -51,12 +52,12 @@
           "quickTranslation.api.id": {
             "order": 1,
             "type": "string",
-            "description": "ID, When the platform is Google, there is no need to fill in."
+            "description": "ID,When the platform is Google, there is no need to fill in."
           },
           "quickTranslation.api.key": {
             "order": 2,
             "type": "string",
-            "description": "KEY, When the platform is Google, there is no need to fill in."
+            "description": "KEY,When the platform is Google, there is no need to fill in."
           }
         }
       },
@@ -85,7 +86,7 @@
             "order": 0,
             "type": "boolean",
             "default": true,
-            "description": "Translate variable into English(If enabled, after selecting the variable, press Ctrl+Shift+R/Command+Shift+R to replace it)."
+            "description": "Translate variable into English(If enabled,after selecting the variable,press Ctrl+Shift+R/Command+Shift+R to replace)."
           },
           "quickTranslation.function.translateSelectText": {
             "order": 1,
@@ -97,7 +98,7 @@
             "order": 2,
             "type": "boolean",
             "default": true,
-            "description": "If enabled, hover over automatically translate the select text, if disabled, hover and press Ctrl+Shift+T/Command+Shift+T to translate."
+            "description": "If enabled, hover to automatically translate the selected text. If disabled, hover and press Ctrl+Shift+T/Command+Shift+T to translate."
           }
         }
       }
