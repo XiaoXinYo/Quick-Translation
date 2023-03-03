@@ -151,7 +151,7 @@ export class Translate {
     }
 }
 
-export class select {
+export class pick {
     constructor() {
     }
 
