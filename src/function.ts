@@ -26,11 +26,12 @@ export const translateVariable = vscode.commands.registerCommand('extension.tran
         SELECT_ING = false;
         return;
     }
-
-    const select = new auxiliary.select();
-    let name = await select.namingFormat(result);
+    
+    const pick = new auxiliary.pick();
+    vscode.window.showQuickPick([{label: 'Translating'}]);
+    let name = await pick.namingFormat(result);
     if (name) {
-        let reconsitution = await select.whether();
+        let reconsitution = await pick.whether();
         if (reconsitution === 'Yes') {
             auxiliary.restructureVariable(text, name);
         } else {
